@@ -1,5 +1,7 @@
 # Effect of voxel spacing and field of view on cross-center breast DCE-MRI tumor segmentation
 
+[![DOI](https://zenodo.org/badge/1453549248.svg)](https://doi.org/10.5281/zenodo.24136771)
+
 Code accompanying the paper
 
 > M. Musaev et al., *Effect of voxel spacing and field of view on cross-center breast DCE-MRI tumor segmentation*, submitted to ANT 2027 (Procedia Computer Science).
@@ -8,9 +10,9 @@ The study measures what geometric preprocessing choices cost in Dice under a
 leave-one-source-out (LOSO) protocol on the MAMA-MIA benchmark, by varying one
 factor at a time:
 
-* **Resolution sweep** – effective in-plane spacing 1.5, 2.0, 3.0 and 4.55 mm, with
+* **Resolution sweep**: effective in-plane spacing 1.5, 2.0, 3.0 and 4.55 mm, with
   field of view, apparent lesion scale, pixel count and reference masks held fixed.
-* **Magnification sweep** – magnification k = 0.5, 1, 2 about the image center,
+* **Magnification sweep**: magnification k = 0.5, 1, 2 about the image center,
   which changes apparent lesion scale and field of view together; lesion
   retention separates the two at analysis time.
 
@@ -47,8 +49,8 @@ Notebook comments are partly in Uzbek; code and variable names are in English.
    CC BY-NC 4.0 and are **not** redistributed here.
 2. **Preprocessing.** Run notebooks 01 → 03. They were written for Kaggle
    (`/kaggle/input`, `/kaggle/working`) and fall back to local paths.
-3. **Experiments.** Run notebooks 04 and 05 on a GPU (written for Kaggle). Each writes a `*_percase.csv` identical in format to the files
-   in `results/`.
+3. **Experiments.** Run notebooks 04 and 05 on a GPU (written for Kaggle). Each
+   writes a `*_percase.csv` identical in format to the files in `results/`.
 4. **Statistics and figures.**
    ```bash
    pip install -r requirements.txt
@@ -60,7 +62,25 @@ Notebook comments are partly in Uzbek; code and variable names are in English.
 
 ## Citation
 
-If you use this code, please cite the paper above and the MAMA-MIA dataset.
+If you use this code, please cite the paper above, the MAMA-MIA dataset, and
+this software release:
+
+> Musaev, M. (2026). *Code for "Effect of voxel spacing and field of view on
+> cross-center breast DCE-MRI tumor segmentation"* (v1.0.0). Zenodo.
+> https://doi.org/10.5281/zenodo.24136772
+
+```bibtex
+@software{musaev2026code,
+  author    = {Musaev, Musabek},
+  title     = {Code for "Effect of voxel spacing and field of view on
+               cross-center breast DCE-MRI tumor segmentation"},
+  version   = {v1.0.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24136772},
+  url       = {https://doi.org/10.5281/zenodo.24136772}
+}
+```
 
 ## License
 
