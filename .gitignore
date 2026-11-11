@@ -1,0 +1,8 @@
+figures/
+results/figure_slices.npz
+mamamia_proc/
+*.h5
+*.nii.gz
+*.pt
+__pycache__/
+.ipynb_checkpoints/
