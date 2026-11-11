@@ -4,7 +4,10 @@
 
 Code accompanying the paper
 
-> M. Musaev et al., *Effect of voxel spacing and field of view on cross-center breast DCE-MRI tumor segmentation*, submitted to ANT 2027 (Procedia Computer Science).
+> M. Musaev, A. Abdusalomov, R. Nasridinov, M. Axmadaliyev, R. Abdirayimov,
+> K. Kyamakya, S. Kasereka, *Effect of voxel spacing and field of view on
+> cross-center breast DCE-MRI tumor segmentation*, submitted to ANT 2027
+> (Procedia Computer Science).
 
 The study measures what geometric preprocessing choices cost in Dice under a
 leave-one-source-out (LOSO) protocol on the MAMA-MIA benchmark, by varying one
@@ -18,6 +21,15 @@ factor at a time:
 
 Held-out sources: NACT (n = 64) and DUKE (n = 290). Two seeds per configuration,
 averaged per case before statistics.
+
+## Training protocol
+
+2D U-Net (five levels, 32–512 channels, 7.76 M parameters), Dice + BCE loss,
+AdamW (lr 3e-4, weight decay 1e-4), cosine schedule, batch size 16, mixed
+precision, **12 epochs of 12,000 sampled slices** (70% tumor-bearing), seeds 42
+and 1, one NVIDIA T4 GPU. All configurations share this budget, so differences
+reflect the manipulated factor rather than training length. The CSVs in
+`results/` were produced with exactly these settings.
 
 ## Repository layout
 
@@ -63,22 +75,25 @@ Notebook comments are partly in Uzbek; code and variable names are in English.
 ## Citation
 
 If you use this code, please cite the paper above, the MAMA-MIA dataset, and
-this software release:
+this software:
 
-> Musaev, M. (2026). *Code for "Effect of voxel spacing and field of view on
-> cross-center breast DCE-MRI tumor segmentation"* (v1.0.0). Zenodo.
-> https://doi.org/10.5281/zenodo.24136772
+> Musaev, M., Abdusalomov, A., Nasridinov, R., Axmadaliyev, M., Abdirayimov, R.,
+> Kyamakya, K., & Kasereka, S. (2026). *Code for "Effect of voxel spacing and
+> field of view on cross-center breast DCE-MRI tumor segmentation"*. Zenodo.
+> https://doi.org/10.5281/zenodo.24136771
 
 ```bibtex
 @software{musaev2026code,
-  author    = {Musaev, Musabek},
+  author    = {Musaev, Musabek and Abdusalomov, Akmalbek and
+               Nasridinov, Rustamjon and Axmadaliyev, Mansurbek and
+               Abdirayimov, Renat and Kyamakya, Kyandoghere and
+               Kasereka, Selain},
   title     = {Code for "Effect of voxel spacing and field of view on
                cross-center breast DCE-MRI tumor segmentation"},
-  version   = {v1.0.0},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.24136772},
-  url       = {https://doi.org/10.5281/zenodo.24136772}
+  doi       = {10.5281/zenodo.24136771},
+  url       = {https://doi.org/10.5281/zenodo.24136771}
 }
 ```
 
